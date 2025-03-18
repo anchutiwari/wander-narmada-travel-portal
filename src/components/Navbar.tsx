@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { companyInfo } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import { SearchBox } from "@/components/SearchBox";
 
 interface NavItem {
   label: string;
@@ -56,60 +58,68 @@ export function Navbar() {
             <span className="text-primary">{companyInfo.name}</span>
           </Link>
           
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <div key={item.label} className="relative group">
-                <div 
-                  className="flex items-center cursor-pointer"
-                  onClick={() => item.submenu && toggleSubmenu(item.label)}
-                >
-                  <Link
-                    to={item.href}
-                    className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary",
-                      location.pathname === item.href ? "text-primary" : "text-foreground/80"
-                    )}
+          <div className="hidden md:flex items-center space-x-4">
+            <SearchBox />
+            
+            <div className="flex items-center space-x-6">
+              {navItems.map((item) => (
+                <div key={item.label} className="relative group">
+                  <div 
+                    className="flex items-center cursor-pointer"
+                    onClick={() => item.submenu && toggleSubmenu(item.label)}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      to={item.href}
+                      className={cn(
+                        "text-sm font-medium transition-colors hover:text-primary",
+                        location.pathname === item.href ? "text-primary" : "text-foreground/80"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                    {item.submenu && (
+                      <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
+                    )}
+                  </div>
+                  
                   {item.submenu && (
-                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
+                    <div className="absolute left-0 mt-2 w-48 origin-top-left bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                      <div className="py-1">
+                        {item.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            to={subItem.href}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
-                
-                {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-48 origin-top-left bg-white shadow-lg rounded-md overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="py-1">
-                      {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.label}
-                          to={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
             
             <Button asChild size="sm" className="ml-4">
               <Link to="/contact">Book Now</Link>
             </Button>
           </div>
           
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="md:hidden flex items-center space-x-4">
+            <SearchBox />
+            
+            <button
+              className="text-foreground"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
       

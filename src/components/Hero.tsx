@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Motion } from "@/components/ui/motion";
+import { SearchBox } from "@/components/SearchBox";
 
 interface HeroProps {
   title?: string;
@@ -80,12 +81,24 @@ export function Hero({
           </Motion>
           
           <Motion animation="fade-in-up" delay={600}>
-            <Button asChild size="lg" className="group">
-              <Link to={ctaLink}>
-                {ctaText}
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <Button asChild size="lg" className="group">
+                <Link to={ctaLink}>
+                  {ctaText}
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              
+              <div className="relative w-full sm:w-auto sm:min-w-[300px]">
+                <div className="md:hidden">
+                  <SearchBox />
+                </div>
+                <div className="hidden md:flex items-center space-x-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                  <Search className="h-5 w-5 text-primary" />
+                  <span className="text-foreground/70">Search destinations, packages & vehicles</span>
+                </div>
+              </div>
+            </div>
           </Motion>
         </div>
       </div>
