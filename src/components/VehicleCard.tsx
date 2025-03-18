@@ -60,7 +60,7 @@ export function VehicleCard({ vehicle, delay = 0 }: VehicleCardProps) {
           {vehicle.description}
         </p>
         
-        <Button asClass size="sm" className="w-full group">
+        <Button asChild size="sm" className="w-full">
           <Link to="/vehicles/book" className="w-full flex items-center justify-center">
             Book Now
           </Link>
