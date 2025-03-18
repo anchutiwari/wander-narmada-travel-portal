@@ -98,3 +98,78 @@ export const companyInfo = {
     }
   }
 };
+
+export const vehicles = [
+  {
+    id: 1,
+    name: "Toyota Innova Crysta",
+    type: "SUV",
+    price: "3,500",
+    capacity: 7,
+    fuelType: "Diesel",
+    transmission: "Automatic",
+    airConditioned: true,
+    image: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?q=80&w=2370&auto=format&fit=crop",
+    description: "Spacious SUV perfect for family trips with ample luggage space and comfortable seating for 7 passengers."
+  },
+  {
+    id: 2,
+    name: "Swift Dzire",
+    type: "Sedan",
+    price: "2,200",
+    capacity: 4,
+    fuelType: "Petrol",
+    transmission: "Manual",
+    airConditioned: true,
+    image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=2564&auto=format&fit=crop",
+    description: "Compact and fuel-efficient sedan ideal for couples or small families exploring the Narmada Valley."
+  },
+  {
+    id: 3,
+    name: "Toyota Fortuner",
+    type: "Premium SUV",
+    price: "5,000",
+    capacity: 7,
+    fuelType: "Diesel",
+    transmission: "Automatic",
+    airConditioned: true,
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2670&auto=format&fit=crop",
+    description: "Luxury SUV with powerful performance and advanced features for a premium travel experience through rough terrains."
+  },
+  {
+    id: 4,
+    name: "Tempo Traveller",
+    type: "Mini Bus",
+    price: "6,500",
+    capacity: 12,
+    fuelType: "Diesel",
+    transmission: "Manual",
+    airConditioned: true,
+    image: "https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?q=80&w=2444&auto=format&fit=crop",
+    description: "Spacious mini bus perfect for large groups and extended families traveling together."
+  },
+  {
+    id: 5,
+    name: "Honda City",
+    type: "Sedan",
+    price: "2,800",
+    capacity: 5,
+    fuelType: "Petrol",
+    transmission: "Automatic",
+    airConditioned: true,
+    image: "https://images.unsplash.com/photo-1546614042-7df3c24c9e5d?q=80&w=2670&auto=format&fit=crop",
+    description: "Comfortable and stylish sedan with excellent fuel efficiency and smooth ride quality."
+  },
+  {
+    id: 6,
+    name: "Mahindra Thar",
+    type: "Jeep",
+    price: "4,200",
+    capacity: 4,
+    fuelType: "Diesel",
+    transmission: "Manual",
+    airConditioned: true,
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2670&auto=format&fit=crop",
+    description: "Rugged off-road vehicle perfect for adventure enthusiasts wanting to explore remote areas of the Narmada Valley."
+  }
+];
